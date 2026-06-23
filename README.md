@@ -1,12 +1,12 @@
-﻿# 微电网工程师 (Microgrid Engineer)
+# 微电网工程师 (Microgrid Engineer)
 
 微电网系统设计、仿真与优化专家插件。覆盖交流/直流/混合微电网架构设计、分布式能源集成、电力电子变流器建模、保护方案设计、能量管理系统（EMS）策略、稳态/暂态/短路分析、多时间尺度仿真等专业领域。
 
 ## 安装
 
-`ash
+```bash
 codex plugin install --from https://github.com/dgjir/microgrid-engineer
-`
+```
 
 安装后在 Codex 中即可使用插件中的 Skill 和 MCP 工具。
 
@@ -16,24 +16,24 @@ codex plugin install --from https://github.com/dgjir/microgrid-engineer
 
 | Skill | 用途 |
 |-------|------|
-| microgrid-system-engineer | 微电网系统工程师 — 架构设计、DER 集成、控制策略、EMS、经济分析 |
-| microgrid-simulation-expert | 微电网仿真专家 — 建模工具选择、仿真建模、联合仿真、HIL 测试、模型验证 |
+| `microgrid-system-engineer` | 微电网系统工程师 — 架构设计、DER 集成、控制策略、EMS、经济分析 |
+| `microgrid-simulation-expert` | 微电网仿真专家 — 建模工具选择、仿真建模、联合仿真、HIL 测试、模型验证 |
 
 ### MCP 工具（工程计算）
 
 | 工具名 | 功能 |
 |--------|------|
-| microgrid-cable-sizing | 电缆选型计算（基于载流量和压降） |
-| microgrid-battery-sizing | 电池储能容量配置（LFP 电芯串并联计算） |
-| microgrid-pv-yield | 光伏年发电量估算 |
-| microgrid-transformer-sizing | 变压器容量选型（含温升/海拔修正） |
-| microgrid-planning-study | 微电网规划研究（容量配置 + 能量平衡 + 经济性） |
+| `microgrid-cable-sizing` | 电缆选型计算（基于载流量和压降） |
+| `microgrid-battery-sizing` | 电池储能容量配置（LFP 电芯串并联计算） |
+| `microgrid-pv-yield` | 光伏年发电量估算 |
+| `microgrid-transformer-sizing` | 变压器容量选型（含温升/海拔修正） |
+| `microgrid-planning-study` | 微电网规划研究（容量配置 + 能量平衡 + 经济性） |
 
 ### 脚本工具
 
 | 脚本 | 功能 |
 |------|------|
-| scripts/load_profile_generator.py | 生成合成负载曲线（含居民/商业/工业混合 + 季节性修正） |
+| `scripts/load_profile_generator.py` | 生成合成负载曲线（含居民/商业/工业混合 + 季节性修正） |
 
 ## AI Agent 使用说明
 
@@ -41,9 +41,9 @@ codex plugin install --from https://github.com/dgjir/microgrid-engineer
 
 当用户提出以下类型的问题时，AI Agent 应自动使用本插件的 Skill：
 
-- **系统设计类**：\"设计一个微电网\"、\"光伏+储能怎么配\"、\"选什么拓扑结构\"
-- **仿真建模类**：\"帮我搭建仿真模型\"、\"用什么工具做暂态分析\"、\"HIL 测试怎么做\"
-- **工程计算类**：\"电缆选多大\"、\"电池配多少度\"、\"变压器选多大\"
+- **系统设计类**："设计一个微电网"、"光伏+储能怎么配"、"选什么拓扑结构"
+- **仿真建模类**："帮我搭建仿真模型"、"用什么工具做暂态分析"、"HIL 测试怎么做"
+- **工程计算类**："电缆选多大"、"电池配多少度"、"变压器选多大"
 
 ### Skill 调用指南
 
@@ -65,17 +65,17 @@ AI Agent 应按以下步骤逐步推进：
 |----------|---------|
 | 稳态潮流/短路 | OpenDSS / Pandapower / PowerFactory |
 | 电磁暂态 (EMT) | PSCAD / Simulink / PLECS |
-| RMS 动态稳定 | PowerFactory / PSS®E |
+| RMS 动态稳定 | PowerFactory / PSSE |
 | 准静态时序 (QSTS) | OpenDSS + Python |
 | 实时 HIL | RTDS / OPAL-RT / Typhoon HIL |
 | 经济调度 | PyPSA / PowerSimulations.jl |
 
 ### MCP 工具调用示例
 
-AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 mcp__microgrid-calc__：
+AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 `mcp__microgrid-calc__`：
 
 **电缆选型：**
-\\\json
+```json
 {
   "name": "microgrid-cable-sizing",
   "arguments": {
@@ -88,10 +88,10 @@ AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 mcp__
     "power_factor": 0.95
   }
 }
-\\\
+```
 
 **电池配置：**
-\\\json
+```json
 {
   "name": "microgrid-battery-sizing",
   "arguments": {
@@ -105,10 +105,10 @@ AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 mcp__
     "cell_capacity_ah": 280
   }
 }
-\\\
+```
 
 **光伏发电量估算：**
-\\\json
+```json
 {
   "name": "microgrid-pv-yield",
   "arguments": {
@@ -120,10 +120,10 @@ AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 mcp__
     "latitude_deg": 31
   }
 }
-\\\
+```
 
 **变压器选型：**
-\\\json
+```json
 {
   "name": "microgrid-transformer-sizing",
   "arguments": {
@@ -135,10 +135,10 @@ AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 mcp__
     "cooling_type": "ONAN"
   }
 }
-\\\
+```
 
 **微电网规划研究：**
-\\\json
+```json
 {
   "name": "microgrid-planning-study",
   "arguments": {
@@ -155,7 +155,7 @@ AI Agent 可通过 MCP 协议直接调用计算工具，工具名前缀为 mcp__
     "grid_connected": false
   }
 }
-\\\
+```
 
 ### 回答格式要求
 
@@ -172,15 +172,15 @@ AI Agent 回答微电网问题时，应遵循结构化格式：
 
 MCP 工具需要 Python 3 环境及以下依赖：
 
-\\\ash
+```bash
 pip install numpy
-\\\
+```
 
-Codex 在安装插件后会自动启动 .mcp.json 中配置的 MCP 服务。
+Codex 在安装插件后会自动启动 `.mcp.json` 中配置的 MCP 服务。
 
 ## 项目结构
 
-\\\
+```
 microgrid-engineer/
 ├── .codex-plugin/
 │   └── plugin.json          # 插件清单
@@ -195,7 +195,7 @@ microgrid-engineer/
 │   └── load_profile_generator.py  # 负载曲线生成
 ├── assets/                  # 资源文件
 └── hooks/                   # 钩子脚本
-\\\
+```
 
 ## 适用标准
 
@@ -209,4 +209,3 @@ microgrid-engineer/
 ## License
 
 MIT
-
