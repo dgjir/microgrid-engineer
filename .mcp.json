@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "microgrid-calc": {
+      "command": "python3",
+      "args": ["scripts/mcp_server.py"],
+      "env": {},
+      "description": "微电网工程计算工具：电缆选型、电池配置、光伏发电量、变压器选型、系统规划"
+    }
+  }
+}

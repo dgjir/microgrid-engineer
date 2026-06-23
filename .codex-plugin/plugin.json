@@ -1,0 +1,35 @@
+{
+  "name": "microgrid-engineer",
+  "version": "0.1.0",
+  "description": "微电网系统工程师 & 仿真专家 - 覆盖微电网设计、仿真、运行优化与工程实践",
+  "author": {
+    "name": "Local developer",
+    "email": "developer@example.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "microgrid",
+    "power-system",
+    "simulation",
+    "renewable-energy",
+    "DER",
+    "energy-storage",
+    "power-electronics"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "微电网工程师 (Microgrid Engineer)",
+    "shortDescription": "微电网系统设计、仿真与优化专家",
+    "longDescription": "微电网系统工程师 & 仿真专家插件。覆盖：交流/直流/混合微电网架构设计、分布式能源（光伏、风电、储能、柴油发电机）集成、电力电子变流器建模、保护方案设计、能量管理系统（EMS）策略、IEEE 1547 / IEC 61850 等标准、稳态/暂态/短路分析、多时间尺度仿真、硬件在环（HIL）测试等专业领域。",
+    "developerName": "Microgrid Team",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "设计一个含光伏+储能+柴油机的独立微电网系统",
+      "帮我搭建一个微电网的MATLAB/Simulink仿真模型",
+      "分析这个微电网的孤岛运行稳定性"
+    ],
+    "brandColor": "#10B981"
+  }
+}
