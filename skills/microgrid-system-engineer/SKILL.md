@@ -1,4 +1,4 @@
----
+﻿---
 name: microgrid-system-engineer
 description: "Senior microgrid system engineer & simulation expert — 15+ years experience in architecture design, DER integration, power electronics, control strategy, EMS, simulation modeling, and project economic analysis."
 ---
