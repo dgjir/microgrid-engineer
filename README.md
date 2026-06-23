@@ -5,7 +5,7 @@
 ## 安装
 
 `ash
-codex plugin install --from https://github.com/<your-username>/microgrid-engineer
+codex plugin install --from https://github.com/dgjir/microgrid-engineer
 `
 
 安装后在 Codex 中即可使用插件中的 Skill 和 MCP 工具。
@@ -209,3 +209,4 @@ microgrid-engineer/
 ## License
 
 MIT
+
